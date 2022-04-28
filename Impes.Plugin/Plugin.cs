@@ -17,15 +17,19 @@ namespace Impes
         /// <summary>
         /// 插件的名称
         /// </summary>
-        public string PluginName { get; set; }
+        public string PluginId { get; set; } = "请安装后查看";
+        /// <summary>
+        /// 插件的名称
+        /// </summary>
+        public string PluginName { get; set; } = "请安装后查看";
         /// <summary>
         /// 插件描述
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; set; } = "请安装后查看";
         /// <summary>
         /// 作者
         /// </summary>
-        public string Author { get; set; }
+        public string Author { get; set; } = "请安装后查看";
         #endregion
         /// <summary>
         /// 构造

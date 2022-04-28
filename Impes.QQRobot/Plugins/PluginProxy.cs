@@ -40,6 +40,10 @@ namespace Impes.QQRobot.Plugins
         /// 唯一标识
         /// </summary>
         public string Guid { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public bool Status { get; set; } = false;
 
         /// <summary>
         /// 获取插件信息
@@ -49,12 +53,21 @@ namespace Impes.QQRobot.Plugins
         public bool GetInfo(string filename)
         {
 
-            if (File.Exists(filename))
+            if (!File.Exists(filename))
             {
                 return false;
             }
             RawDll = File.ReadAllBytes(filename);
             Md5 = RawDll.MD5ByString();
+            return true;
+        }
+        public bool Init()
+        {
+            if (!GetInfo(Filename)) {
+                return false;
+            }
+            //构建插件
+            Plugin = CreateInstance(RawDll, this.Bot);
             return true;
         }
         /// <summary>
@@ -64,9 +77,11 @@ namespace Impes.QQRobot.Plugins
         {
             if (!GetInfo(Filename))
             {
+                Status = false;
                 return false;
             }
             //构建插件
+            Status = true;
             Plugin = CreateInstance(RawDll, this.Bot);
             return true;
         }
@@ -77,6 +92,7 @@ namespace Impes.QQRobot.Plugins
         {
             try
             {
+                Status = false;
                 Plugin?.Stop();
             }
             catch { }
@@ -139,10 +155,9 @@ namespace Impes.QQRobot.Plugins
                     Guid = ((System.Runtime.InteropServices.GuidAttribute)assembly.GetCustomAttributes(typeof(System.Runtime.InteropServices.GuidAttribute), true)[0]).Value.ToLower();
                 }
                 catch { }
-
                 return Activator.CreateInstance(instance, bot) as Plugin;
             }
-            throw new Exception("请确保文件为标准应用，或尝试更新应用");
+            throw new Exception("请确保文件为标准应用");
         }
         /// <summary>
         /// 查找所有Type（排除不存在引用的）
