@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Impes.Commons
+namespace My.Commons
 {
     public static class Commons
     {

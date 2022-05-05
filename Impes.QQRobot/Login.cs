@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Impes.QQRobot
+namespace My.QQRobot
 {
     public partial class Login : Form
     {

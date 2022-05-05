@@ -1,5 +1,5 @@
-using Impes.QQRobot.Entitys;
-using Impes.QQRobot.Plugins;
+using My.QQRobot.Entitys;
+using My.QQRobot.Plugins;
 using Konata.Core;
 using Konata.Core.Common;
 using Konata.Core.Events.Model;
@@ -7,7 +7,7 @@ using Konata.Core.Interfaces;
 using Konata.Core.Interfaces.Api;
 using System.Text.Json;
 
-namespace Impes.QQRobot
+namespace My.QQRobot
 {
     public partial class Form1 : Form
     {

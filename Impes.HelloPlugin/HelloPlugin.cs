@@ -3,7 +3,7 @@ using Konata.Core.Interfaces.Api;
 using Konata.Core.Message;
 using Konata.Core.Message.Model;
 
-namespace Impes.HelloPlugin
+namespace My.HelloPlugin
 {
     public class HelloPlugin : Plugin
     {

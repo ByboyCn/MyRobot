@@ -1,4 +1,4 @@
-﻿using Impes.QQRobot.Commons;
+﻿using My.QQRobot.Commons;
 using Konata.Core;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impes.QQRobot.Plugins
+namespace My.QQRobot.Plugins
 {
     internal class PluginProxy
     {

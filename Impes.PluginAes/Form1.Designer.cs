@@ -1,4 +1,4 @@
-﻿namespace Impes.PluginAes
+﻿namespace My.PluginAes
 {
     partial class Form1
     {

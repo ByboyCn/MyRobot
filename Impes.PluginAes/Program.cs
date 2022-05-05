@@ -1,4 +1,4 @@
-namespace Impes.PluginAes
+namespace My.PluginAes
 {
     internal static class Program
     {

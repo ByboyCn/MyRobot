@@ -1,7 +1,7 @@
 using Konata.Core;
 using System.Reflection;
 
-namespace Impes.PluginAes
+namespace My.PluginAes
 {
     public partial class Form1 : Form
     {

@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Impes.Plugin\Impes.Plugin.csproj" />
+    <ProjectReference Include="..\My.Plugin\My.Plugin.csproj" />
   </ItemGroup>
 
 </Project>

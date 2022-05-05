@@ -1,4 +1,4 @@
-﻿namespace Impes.QQRobot
+﻿namespace My.QQRobot
 {
     partial class InputBox
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impes.QQRobot.Commons
+namespace My.QQRobot.Commons
 {
     /// <summary>
     /// 工具类

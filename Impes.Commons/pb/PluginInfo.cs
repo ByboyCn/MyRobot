@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Impes.Commons.pb
+namespace My.Commons.pb
 {
 
     public class PluginInfo

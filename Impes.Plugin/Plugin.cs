@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Impes
+namespace My
 {
     /// <summary>
     /// Plugin二次开发继承类
