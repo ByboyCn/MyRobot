@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Konata.Core" Version="1.3.1" />
+    <ProjectReference Include="..\Konata.Core\Konata.Core\Konata.Core.csproj" />
   </ItemGroup>
 
 </Project>
