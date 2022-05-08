@@ -14,24 +14,24 @@ namespace My.QQRobot.Plugins
         /// <summary>
         /// dll
         /// </summary>
-        private byte[] RawDll;
+        private byte[] RawDll = null!;
 
         /// <summary>
         /// 插件
         /// </summary>
-        public Plugin Plugin { get; set; }
+        public Plugin? Plugin { get; set; }
         /// <summary>
         /// bot
         /// </summary>
-        public Bot Bot { get; set; }
+        public Bot Bot { get; set; } = null!;
         /// <summary>
         /// 应用Md5值
         /// </summary>
-        public string Md5 { get; private set; }
+        public string Md5 { get; private set; } = null!;
         /// <summary>
         /// 插件路径
         /// </summary>
-        public string Filename { get; set; }
+        public string Filename { get; set; } = null!;
         /// <summary>
         /// 是否运行
         /// </summary>
@@ -39,7 +39,7 @@ namespace My.QQRobot.Plugins
         /// <summary>
         /// 唯一标识
         /// </summary>
-        public string Guid { get; set; }
+        public string Guid { get; set; } = null!;
         /// <summary>
         /// 状态
         /// </summary>
@@ -67,7 +67,7 @@ namespace My.QQRobot.Plugins
                 return false;
             }
             //构建插件
-            Plugin = CreateInstance(RawDll, this.Bot);
+            Plugin = CreateInstance(RawDll);
             return true;
         }
         /// <summary>
@@ -82,7 +82,8 @@ namespace My.QQRobot.Plugins
             }
             //构建插件
             Status = true;
-            Plugin = CreateInstance(RawDll, this.Bot);
+            Plugin = CreateInstance(RawDll);
+            Plugin.InitClient(Bot);
             return true;
         }
         /// <summary>
@@ -130,6 +131,9 @@ namespace My.QQRobot.Plugins
             }
             return null;
         }
+
+
+
         /// <summary>
         /// 创建插件实例
         /// </summary>
@@ -137,7 +141,7 @@ namespace My.QQRobot.Plugins
         /// <param name="bot"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        private Plugin CreateInstance(byte[] dll, Bot bot)
+        private Plugin? CreateInstance(byte[] dll)
         {
             if (dll == null)
             {
@@ -155,7 +159,7 @@ namespace My.QQRobot.Plugins
                     Guid = ((System.Runtime.InteropServices.GuidAttribute)assembly.GetCustomAttributes(typeof(System.Runtime.InteropServices.GuidAttribute), true)[0]).Value.ToLower();
                 }
                 catch { }
-                return Activator.CreateInstance(instance, bot) as Plugin;
+                return Activator.CreateInstance(instance) as Plugin;
             }
             throw new Exception("请确保文件为标准应用");
         }

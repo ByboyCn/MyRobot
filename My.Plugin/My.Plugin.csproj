@@ -3,11 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+	 <LangVersion>10.0</LangVersion>
     <RootNamespace>My</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Konata.Core\Konata.Core\Konata.Core.csproj" />
+    <ProjectReference Include="..\My.Commons\My.Commons.csproj" />
   </ItemGroup>
 
 </Project>

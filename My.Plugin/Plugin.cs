@@ -1,8 +1,11 @@
 ﻿using Konata.Core;
 using My.Events;
+using Konata.Core.Interfaces.Api;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using My.Commons;
 
 namespace My
 {
@@ -13,8 +16,21 @@ namespace My
     {
         public delegate void PluginEvent<in TArgs>(Bot sender, TArgs args);
         #region 私有变量
-        private readonly Bot bot;
+        private Bot bot = null!;
+        public void InitClient(Bot bot)
+        {
+            if (this.bot == null) {
+                this.bot = bot;
+            }
+        }
+        /// <summary>
+        /// 构造
+        /// </summary>
+        public Plugin()
+        {
+        }
         #endregion
+
         #region 公共变量
         /// <summary>
         /// 插件的名称
@@ -33,14 +49,6 @@ namespace My
         /// </summary>
         public string Author { get; set; } = "请安装后查看";
         #endregion
-        /// <summary>
-        /// 构造
-        /// </summary>
-        /// <param name="bot">实例</param>
-        public Plugin(Bot bot)
-        {
-            this.bot = bot ?? throw new ArgumentNullException("use ctor : base(client)");
-        }
 
         #region 抽象方法
 
@@ -66,87 +74,87 @@ namespace My
         /// <summary>
         /// 机器人上线
         /// </summary>
-        public event PluginEvent<BotOnlineEvent> BotOnline;
+        public event PluginEvent<BotOnlineEvent>? BotOnline;
 
         /// <summary>
         /// 机器人离线
         /// </summary>
-        public event PluginEvent<BotOfflineEvent> BotOffline;
+        public event PluginEvent<BotOfflineEvent>? BotOffline;
 
         /// <summary>
         /// 机器人收到验证码
         /// </summary>
-        public event PluginEvent<CaptchaEvent> Captcha;
+        public event PluginEvent<CaptchaEvent>? Captcha;
 
         /// <summary>
         /// 机器人收到群消息
         /// </summary>
-        public event PluginEvent<GroupMessageEvent> GroupMessage;
+        public event PluginEvent<GroupMessageEvent>? GroupMessage;
 
         /// <summary>
         /// 机器人收到群内禁言信息
         /// </summary>
-        public event PluginEvent<GroupMuteMemberEvent> GroupMute;
+        public event PluginEvent<GroupMuteMemberEvent>? GroupMute;
 
         /// <summary>
         /// 机器人收到群内撤回消息
         /// </summary>
-        public event PluginEvent<GroupMessageRecallEvent> GroupMessageRecall;
+        public event PluginEvent<GroupMessageRecallEvent>? GroupMessageRecall;
 
         /// <summary>
         /// 机器人收到群内戳一戳
         /// </summary>
-        public event PluginEvent<GroupPokeEvent> GroupPoke;
+        public event PluginEvent<GroupPokeEvent>? GroupPoke;
 
         /// <summary>
         /// 机器人收到群内踢人信息
         /// </summary>
-        public event PluginEvent<GroupKickMemberEvent> GroupMemberDecrease;
+        public event PluginEvent<GroupKickMemberEvent>? GroupMemberDecrease;
 
         /// <summary>
         /// 机器人收到群内加人信息
         /// </summary>
-        public event PluginEvent<GroupMemberIncreaseEvent> GroupMemberIncrease;
+        public event PluginEvent<GroupMemberIncreaseEvent>? GroupMemberIncrease;
 
         /// <summary>
         /// 机器人收到群内管理员变动信息
         /// </summary>
-        public event PluginEvent<GroupPromoteAdminEvent> GroupPromoteAdmin;
+        public event PluginEvent<GroupPromoteAdminEvent>? GroupPromoteAdmin;
 
         /// <summary>
         /// 机器人收到群邀请信息
         /// </summary>
-        public event PluginEvent<GroupInviteEvent> GroupInvite;
+        public event PluginEvent<GroupInviteEvent>? GroupInvite;
 
         /// <summary>
         /// 机器人收到群申请信息
         /// </summary>
-        public event PluginEvent<GroupRequestJoinEvent> GroupRequestJoin;
+        public event PluginEvent<GroupRequestJoinEvent>? GroupRequestJoin;
 
         /// <summary>
         /// 机器人收到好友消息
         /// </summary>
-        public event PluginEvent<FriendMessageEvent> FriendMessage;
+        public event PluginEvent<FriendMessageEvent>? FriendMessage;
 
         /// <summary>
         /// 机器人收到好友撤回信息
         /// </summary>
-        public event PluginEvent<FriendMessageRecallEvent> FriendMessageRecall;
+        public event PluginEvent<FriendMessageRecallEvent>? FriendMessageRecall;
 
         /// <summary>
         /// 机器人收到好友戳一戳
         /// </summary>
-        public event PluginEvent<FriendPokeEvent> FriendPoke;
+        public event PluginEvent<FriendPokeEvent>? FriendPoke;
 
         /// <summary>
         /// 机器人收到好友正在输入信息
         /// </summary>
-        public event PluginEvent<FriendTypingEvent> FriendTyping;
+        public event PluginEvent<FriendTypingEvent>? FriendTyping;
 
         /// <summary>
         /// 机器人收到加好友请求
         /// </summary>
-        public event PluginEvent<FriendRequestEvent> FriendRequest;
+        public event PluginEvent<FriendRequestEvent>? FriendRequest;
 
         /// <summary>
         /// 触发在线事件
@@ -320,10 +328,63 @@ namespace My
         #endregion
 
         #region 机器人方法
+        #region 机器人方法
+        /// <summary>
+        /// 登陆
+        /// </summary>
+        /// <returns></returns>
+        public Task<bool> Login => bot.Login();
+
+        /// <summary>
+        /// 登出
+        /// </summary>
+        /// <returns></returns>
+        public Task Logout => bot.Logout();
+
+        /// <summary>
+        /// 发送验证ticket
+        /// </summary>
+        /// <param name="ticket">ticket</param>
+        /// <returns></returns>
+        public bool SubmitSliderTicket(string ticket) => bot.SubmitSliderTicket(ticket);
+        
+        /// <summary>
+        /// 发送短信验证码
+        /// </summary>
+        /// <param name="code">验证码</param>
+        /// <returns></returns>
+        public bool SubmitSmsCode(string code)=>bot.SubmitSmsCode(code);
+
+        /// <summary>
+        /// 获取群列表
+        /// </summary>
+        /// <param name="forceUpdate">是否实时更新</param>
+        /// <returns></returns>
+        public async Task<IReadOnlyList<BotGroup>> GetGroupList(bool forceUpdate = false)
+        {
+            var group = await bot.GetGroupList(forceUpdate);
+            return group.Convent();
+        }
+
+        /// <summary>
+        /// 获取好友列表
+        /// </summary>
+        /// <param name="forceUpdate"></param>
+        /// <returns></returns>
+        public async Task<IReadOnlyList<BotFriend>> GetFriendList(bool forceUpdate = false)
+        {
+            var friend = await bot.GetFriendList(forceUpdate);
+            return friend.Convent();
+        }
+
+
+
 
 
 
         #endregion
+        #endregion
 
     }
 }
+
