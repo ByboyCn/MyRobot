@@ -161,7 +161,7 @@ namespace My
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void OnBotOnline(Bot sender,BotOnlineEvent e)
+        public void OnBotOnline(Bot sender, BotOnlineEvent e)
         {
             BotOnline?.Invoke(sender, e);
         }
@@ -328,7 +328,7 @@ namespace My
         #endregion
 
         #region 机器人方法
-        #region 机器人方法
+        #region 机器人模块
         /// <summary>
         /// 登陆
         /// </summary>
@@ -347,13 +347,13 @@ namespace My
         /// <param name="ticket">ticket</param>
         /// <returns></returns>
         public bool SubmitSliderTicket(string ticket) => bot.SubmitSliderTicket(ticket);
-        
+
         /// <summary>
         /// 发送短信验证码
         /// </summary>
         /// <param name="code">验证码</param>
         /// <returns></returns>
-        public bool SubmitSmsCode(string code)=>bot.SubmitSmsCode(code);
+        public bool SubmitSmsCode(string code) => bot.SubmitSmsCode(code);
 
         /// <summary>
         /// 获取群列表
@@ -377,14 +377,86 @@ namespace My
             return friend.Convent();
         }
 
+        /// <summary>
+        /// 获取csrfToken
+        /// </summary>
+        /// <returns></returns>
+        public Task<string> GetCsrfToken() => bot.GetCsrfToken();
 
+        /// <summary>
+        /// 获取在线状态
+        /// </summary>
+        /// <returns></returns>
+        public Konata.Core.Events.Model.OnlineStatusEvent.Type GetOnlineStatus() => bot.GetOnlineStatus();
 
+        /// <summary>
+        /// 当前是否在线
+        /// </summary>
+        /// <returns></returns>
+        public bool IsOnline() => bot.IsOnline();
 
+        #endregion
+        #region 群模块
+        /// <summary>
+        /// 踢人
+        /// </summary>
+        /// <param name="groupUin">群uin</param>
+        /// <param name="memberUin">被操作人uin</param>
+        /// <param name="preventRequest">是否允许再次申请</param>
+        /// <returns></returns>
+        public Task<bool> GroupKickMember(uint groupUin, uint memberUin, bool preventRequest) => bot.GroupKickMember(groupUin, memberUin, preventRequest);
 
+        /// <summary>
+        /// 禁言某个人
+        /// </summary>
+        /// <param name="groupUin">群uin</param>
+        /// <param name="memberUin">被操作人uin</param>
+        /// <param name="timeSeconds">禁言时间</param>
+        /// <returns></returns>
+        public Task<bool> GroupMuteMember(uint groupUin, uint memberUin, uint timeSeconds) => bot.GroupMuteMember(groupUin, memberUin, timeSeconds);
+
+        /// <summary>
+        /// 群成员变动
+        /// </summary>
+        /// <param name="groupUin">群uin</param>
+        /// <param name="memberUin">被操作人uin</param>
+        /// <param name="toggleAdmin">设置或取消管理员</param>
+        /// <returns></returns>
+        public Task<bool> GroupPromoteAdminFun(uint groupUin, uint memberUin, bool toggleAdmin) => bot.GroupPromoteAdmin(groupUin, memberUin, toggleAdmin);
+
+        /// <summary>
+        /// 设置群成员自定义标题
+        /// </summary>
+        /// <param name="groupUin">群uin</param>
+        /// <param name="memberUin">被操作人uin</param>
+        /// <param name="specialTitle">标题内容</param>
+        /// <param name="expiredTime">到期时间</param>
+        /// <returns></returns>
+        public Task<bool> GroupSetSpecialTitle(uint groupUin, uint memberUin, string specialTitle, uint expiredTime) => bot.GroupSetSpecialTitle(groupUin, memberUin, specialTitle, expiredTime);
+
+        /// <summary>
+        /// 机器人退出群
+        /// </summary>
+        /// <param name="groupUin">群uin</param>
+        /// <returns></returns>
+        public Task<bool> GroupLeave(uint groupUin) => bot.GroupLeave(groupUin);
+
+        /// <summary>
+        /// 戳一戳群成员
+        /// </summary>
+        /// <param name="groupUin">群uin</param>
+        /// <param name="memberUin">被戳的人uin</param>
+        /// <returns></returns>
+        public Task<bool> SendGroupPoke( uint groupUin, uint memberUin)=>bot.SendGroupPoke(groupUin, memberUin);
+
+        public Task<bool> SendGroupMessage(uint groupUin, MessageBuilder builder) => bot.SendGroupMessage(groupUin, builder);
 
         #endregion
         #endregion
-
+        public void Test()
+        {
+            bot.GroupLeave(1);
+        }
     }
 }
 
