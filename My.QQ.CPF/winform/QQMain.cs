@@ -11,7 +11,8 @@ namespace My.QQ
     {
         protected override void InitializeComponent()
         {
-            if (!DesignMode) {
+            if (!DesignMode)
+            {
                 DataContext = new QQMainModel();
                 CommandContext = DataContext;
             }
@@ -143,7 +144,7 @@ namespace My.QQ
                             },
                             new RowDefinition
                             {
-
+                                
                             }
                         },
                         Children =
@@ -414,6 +415,7 @@ namespace My.QQ
                         {
                             new Label
                             {
+                                MarginRight = 263,
                                 FontSize = 14f,
                                 MarginLeft = 15,
                                 Classes=
@@ -422,6 +424,16 @@ namespace My.QQ
                                 },
                                 Foreground = "rgb(108,122,145)",
                                 Text = ((char)0xf0c9).ToString(),
+                                Commands=
+                                {
+                                    {
+                                        nameof(Button.Click),
+                                        (s,e)=>
+                                        {
+                                            MessageBox.ShowSync("自动更新?");
+                                        }
+                                    }
+                                },
                             },
                             new Label
                             {
@@ -442,16 +454,18 @@ namespace My.QQ
                     },
                 },
             }));
-
             LoadStyleFile("res://My.QQ.CPF/css/QQMain.css");
             //加载样式文件，文件需要设置为内嵌资源
 
             if (!DesignMode)//设计模式下不执行
             {
-                Closing += ((e, s) => {
-                    s.Cancel = true; // 结束
+                Closing += ((e, s) =>
+                {
+                    s.Cancel = true;
+                    // 结束
                     var c = (bool)(MessageBox.ShowSync("确定要退出吗?", "提示") ?? false);
-                    if (c) {
+                    if (c)
+                    {
                         var tt = System.Diagnostics.Process.GetProcessById(System.Diagnostics.Process.GetCurrentProcess().Id);
                         tt.Kill();
                     }

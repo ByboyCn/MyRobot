@@ -21,6 +21,7 @@ namespace My.QQ
                     Height = 30,
                     MarginLeft = 5,
                     StrokeFill = null,
+                    Bindings = { { nameof(Ellipse.Fill),nameof(ItemData.Img) } },
                 });
             Children.Add(new TextBlock { Text = "马大云", MarginLeft = 40, MarginTop = 5, Bindings = { { nameof(TextBlock.Text), nameof(ItemData.Name) } } });
             Children.Add(new TextBlock { Text = "这人很帅", MarginLeft = 40, MarginTop = 20, Foreground = "#666", Bindings = { { nameof(TextBlock.Text), nameof(ItemData.Introduce) } } });

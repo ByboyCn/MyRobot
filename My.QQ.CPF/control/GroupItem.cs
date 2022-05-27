@@ -42,31 +42,95 @@ namespace My.QQ
                         Height="30",
                         Orientation= Orientation.Horizontal,
                         Children={
-                            new Polygon{
+                            new Polygon
+                            {
                                 IsAntiAlias=true,
                                 MarginLeft=3,
                                 //MarginTop=3,
                                 Width=12,
                                 RenderTransformOrigin=new PointField("30%","70%"),
-                                Points={new Point(2,2),new Point(2,10),new Point(6,6), },
+                                Points=
+                                {
+                                    new Point(2,2),
+                                    new Point(2,10),
+                                    new Point(6,6),
+                                },
                                 Bindings={
-                                    { nameof(Polygon.RenderTransform),nameof(IsExpanded),3,BindingMode.OneWay,a=>(bool)a?new RotateTransform(45):Transform.Identity},
-                                    { nameof(Visibility),nameof(HasItems),3,BindingMode.OneWay,a=>(bool)a?Visibility.Visible:Visibility.Collapsed }
+                                    {
+                                        nameof(Polygon.RenderTransform),
+                                        nameof(IsExpanded),
+                                        3,
+                                        BindingMode.OneWay,
+                                        a=>(bool)a ? new RotateTransform(45) : Transform.Identity
+                                    },
+                                    { 
+                                        nameof(Visibility),
+                                        nameof(HasItems),
+                                        3,
+                                        BindingMode.OneWay,
+                                        a=>(bool)a ? Visibility.Visible : Visibility.Collapsed 
+                                    }
                                 },
                                 Triggers={
-                                    new Trigger{ Property=nameof(IsMouseOver), Setters = { {nameof(Shape.StrokeFill),"4,124,205" } } }
-
+                                    new Trigger
+                                    { 
+                                        Property=nameof(IsMouseOver), 
+                                        Setters = 
+                                        { 
+                                            {
+                                                nameof(Shape.StrokeFill),
+                                                "4,124,205" 
+                                            } 
+                                        } 
+                                    }
                                 }
                             },
-                            new ContentControl{MarginLeft=3 ,Bindings={ {nameof(ContentControl.Content),nameof(Header),3 }, {nameof(ContentControl.ContentTemplate),nameof(HeaderTemplate),3 } } }
+                            new ContentControl{
+                                MarginLeft=3 ,
+                                Bindings={
+                                    {
+                                        nameof(ContentControl.Content),
+                                        nameof(Header),
+                                        3
+                                    },
+                                    {
+                                        nameof(ContentControl.ContentTemplate),
+                                        nameof(HeaderTemplate)
+                                        ,3
+                                    }
+                                }
+                            }
                         },
                         Triggers={
-                            new Trigger { Property = nameof(IsMouseOver), Setters = { { nameof(Background), "232,242,252" } } },
+                            new Trigger
+                            {
+                                Property = nameof(IsMouseOver),
+                                Setters =
+                                {
+                                    {
+                                        nameof(Background),
+                                        "232,242,252"
+                                    }
+                                }
+                            },
                         },
                         Commands=
                         {
-                            {nameof(MouseDown),(s,e)=> { SingleSelect(); } },
-                            {nameof(MouseDown),(s,e)=> { ((RoutedEventArgs)e).Handled = true; IsExpanded = !IsExpanded; } }
+                            {
+                                nameof(MouseDown),
+                                (s,e)=>
+                                {
+                                    SingleSelect();
+                                }
+                            },
+                            {
+                                nameof(MouseDown),
+                                (s,e)=>
+                                {
+                                    ((RoutedEventArgs)e).Handled = true;
+                                    IsExpanded = !IsExpanded;
+                                }
+                            }
                         },
                     },
                     //panel,

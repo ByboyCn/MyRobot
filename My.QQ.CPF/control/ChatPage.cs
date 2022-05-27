@@ -7,7 +7,7 @@ using CPF.Shapes;
 
 namespace My.QQ
 {
-    [DesignerLoadStyle("res://My.QQ/css/QQChat.css")]
+    [DesignerLoadStyle("res://My.QQ.CPF/css/QQChat.css")]
     public class ChatPage : Control
     {
         protected override void InitializeComponent()
@@ -302,7 +302,7 @@ namespace My.QQ
             chatContent.Document.Add(block);
 
             var left1 = new Block { };
-            left1.Add(new InlineUIContainer { UIElement = new Ellipse { Width = 30, Height = 30, IsAntiAlias = true, MarginBottom = -12, MarginRight = 10, Fill = "url(res://My.QQ/Resources/headQQ.png) Clamp Fill", StrokeFill = null } });
+            left1.Add(new InlineUIContainer { UIElement = new Ellipse { Width = 30, Height = 30, IsAntiAlias = true, MarginBottom = -12, MarginRight = 10, Fill = "url(res://My.QQ.CPF/Resources/headQQ.png) Clamp Fill", StrokeFill = null } });
             left1.Add("昵称", 0);
             left1.Add(new Block("简洁、直观、强悍的netcore跨平台UI开发框架\n框架理念和WPF类似，但是没有Xaml，直接用CSS和C#代码描述")
             {
@@ -310,20 +310,20 @@ namespace My.QQ
                 WordWarp = true,
                 MaxWidth = "80%",
                 Padding = new Thickness(10),
-                Background = new SudokuImageFill("res://My.QQ/Resources/aio_user_bg_nor (71).png"),
+                Background = new SudokuImageFill("res://My.QQ.CPF/Resources/aio_user_bg_nor (71).png"),
             });
             chatContent.Document.Add(left1);
 
             var right = new Block { TextAlignment = TextAlignment.Right, Width = "100%" };
             right.Add("昵称", 0);
-            right.Add(new InlineUIContainer { UIElement = new Ellipse { Width = 30, Height = 30, IsAntiAlias = true, MarginBottom = -12, MarginLeft = 10, Fill = "url(res://My.QQ/Resources/headQQ.png),Clamp,Fill", StrokeFill = null } });
+            right.Add(new InlineUIContainer { UIElement = new Ellipse { Width = 30, Height = 30, IsAntiAlias = true, MarginBottom = -12, MarginLeft = 10, Fill = "url(res://My.QQ.CPF/Resources/headQQ.png),Clamp,Fill", StrokeFill = null } });
             right.Add(new Block("简洁、直观、强悍的netcore跨平台UI开发框架框架理念和WPF类似，但是没有Xaml，直接用CSS和C#代码描述")
             {
                 WordWarp = true,
                 MaxWidth = "80%",
                 Margin = new Thickness(0, 5, 30, 5),
                 Padding = new Thickness(10),
-                Background = new SudokuImageFill("res://My.QQ/Resources/aio_friend_bg_nor (81).png"),
+                Background = new SudokuImageFill("res://My.QQ.CPF/Resources/aio_friend_bg_nor (81).png"),
                 Children =
                 {
                     new InlineUIContainer
@@ -334,7 +334,7 @@ namespace My.QQ
                             MarginLeft = 2,
                             MarginRight = 2,
                             MarginTop = 2,
-                            Source = "res://My.QQ/Resources/headQQ.png",
+                            Source = "res://My.QQ.CPF/Resources/headQQ.png",
                             MaxWidth = 200,
                             Stretch = Stretch.Uniform,
                             StretchDirection = StretchDirection.DownOnly
@@ -359,7 +359,7 @@ namespace My.QQ
                     IsAntiAlias = true,
                     MarginBottom = -12,
                     MarginLeft = 10,
-                    Fill = "url(res://My.QQ/Resources/headQQ.png) Clamp Fill",
+                    Fill = "url(res://My.QQ.CPF/Resources/headQQ.png) Clamp Fill",
                     StrokeFill = null
                 }
             });
@@ -369,7 +369,7 @@ namespace My.QQ
                 MaxWidth = "80%",
                 Margin = new Thickness(0, 5, 30, 5),
                 Padding = new Thickness(10),
-                Background = new SudokuImageFill("res://My.QQ/Resources/aio_friend_bg_nor (81).png"),
+                Background = new SudokuImageFill("res://My.QQ.CPF/Resources/aio_friend_bg_nor (81).png"),
             });
             chatContent.Document.Add(right);
         }

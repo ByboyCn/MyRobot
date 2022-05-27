@@ -24,6 +24,10 @@ namespace My.QQ
                 Width = 40,
                 StrokeFill = null,
                 Fill = "url(res://My.QQ/Resources/headQQ.png) Clamp Fill",
+                Bindings =
+                {
+                    { nameof(Ellipse.Fill),"Item1" }
+                },
             });
             Children.Add(new TextBlock
             {
@@ -34,7 +38,7 @@ namespace My.QQ
                 MarginRight = 40,
                 Bindings =
                 {
-                    {nameof(TextBlock.Text),"Item1" }
+                    {nameof(TextBlock.Text),"Item2" }
                 }
             });
             Children.Add(new TextBlock
@@ -48,7 +52,7 @@ namespace My.QQ
                 Text = "TextBlock2231313112311",
                 Bindings =
                 {
-                    {nameof(TextBlock.Text),"Item2" }
+                    {nameof(TextBlock.Text),"Item3" }
                 }
             });
             Triggers.Add(nameof(IsMouseOver), Relation.Me, null, (nameof(Background), "#aaaaaa55"));

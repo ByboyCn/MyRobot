@@ -58,9 +58,5 @@
     <PackageReference Include="Xhm.CPF.Mac" Version="0.9.6.1" />
     <PackageReference Include="Xhm.CPF.Linux" Version="0.9.6.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="icon\" />
-  </ItemGroup>
  
 </Project>
