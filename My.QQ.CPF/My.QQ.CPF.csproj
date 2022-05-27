@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants />
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="css\anyemoshi.css" />
+    <None Remove="css\mingliangmoshi.css" />
+    <None Remove="css\QQChat.css" />
+    <None Remove="css\QQLogin.css" />
+    <None Remove="css\QQMain.css" />
+    <None Remove="Resources\aio_friend_bg_nor %2881%29.png" />
+    <None Remove="Resources\aio_user_bg_nor %2871%29.png" />
+    <None Remove="Resources\arrow.png" />
+    <None Remove="Resources\headQQ.png" />
+    <None Remove="Resources\icon.png" />
+    <None Remove="Resources\qq.png" />
+    <None Remove="Resources\主页.png" />
+    <None Remove="Resources\键盘.png" />
+    <None Remove="ttf\AlibabaPuHuiTi.ttf" />
+    <None Remove="ttf\fa-Brands.otf" />
+    <None Remove="ttf\fa-Free.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="css\anyemoshi.css" />
+    <EmbeddedResource Include="css\mingliangmoshi.css" />
+    <EmbeddedResource Include="css\QQChat.css" />
+    <EmbeddedResource Include="css\QQLogin.css" />
+    <EmbeddedResource Include="css\QQMain.css" />
+    <EmbeddedResource Include="Resources\aio_friend_bg_nor (81).png" />
+    <EmbeddedResource Include="Resources\aio_user_bg_nor (71).png" />
+    <EmbeddedResource Include="Resources\arrow.png" />
+    <EmbeddedResource Include="Resources\headQQ.png" />
+    <EmbeddedResource Include="Resources\icon.png" />
+    <EmbeddedResource Include="Resources\qq.png" />
+    <EmbeddedResource Include="Resources\主页.png" />
+    <EmbeddedResource Include="Resources\键盘.png" />
+    <EmbeddedResource Include="ttf\AlibabaPuHuiTi.ttf" />
+    <EmbeddedResource Include="ttf\fa-Brands.otf" />
+    <EmbeddedResource Include="ttf\fa-Free.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xhm.CPF" Version="0.9.6.1" />
+    <PackageReference Include="Xhm.CPF.Windows" Version="0.9.6.1" />
+    <PackageReference Include="Xhm.CPF.Skia" Version="0.9.6.1" />
+    <PackageReference Include="Xhm.CPF.Mac" Version="0.9.6.1" />
+    <PackageReference Include="Xhm.CPF.Linux" Version="0.9.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="icon\" />
+  </ItemGroup>
+ 
+</Project>
