@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CPF;
-using CPF.Drawing;
+﻿using CPF;
 using CPF.Controls;
-using CPF.Shapes;
-using CPF.Styling;
-using CPF.Animation;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class PopList : Control
     {

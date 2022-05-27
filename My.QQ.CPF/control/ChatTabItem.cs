@@ -2,18 +2,14 @@
 using CPF.Controls;
 using CPF.Shapes;
 using CPF.Styling;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class ChatTabItem : TabItem
     {
         protected override void InitializeComponent()
         {
-            if (DesignMode)
-            {
+            if (DesignMode) {
                 Background = "#aaa";
             }
             Height = 60;
@@ -33,7 +29,7 @@ namespace My.QQ.CPF
                         Height = 40,
                         Width = 40,
                         StrokeFill = null,
-                        Fill = "url(res://My.QQ.CPF/Resources/headQQ.png) Clamp Fill",
+                        Fill = "url(res://My.QQ/Resources/headQQ.png) Clamp Fill",
                     },
                     new TextBlock
                     {

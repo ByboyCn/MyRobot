@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CPF;
+﻿using CPF;
 using CPF.Drawing;
 using CPF.Styling;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class LoginModel : CpfObject
     {
@@ -18,9 +15,8 @@ namespace My.QQ.CPF
         async void LoadData()
         {
             var img = await ResourceManager.GetImage("res://My.QQ.CPF/Resources/headQQ.png");
-            for (int i = 0; i < 10; i++)
-            {
-                UserList.Add((img, "小红帽" + i, "11111111" + i));
+            for (int i = 0; i < 1; i++) {
+                UserList.Add((img, "Byboy", "3446236"));
             }
         }
 

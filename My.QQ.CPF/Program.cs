@@ -5,7 +5,7 @@ using CPF.Skia;
 using CPF.Windows;
 using System;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     internal class Program
     {

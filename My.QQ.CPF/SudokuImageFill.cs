@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     /// <summary>
     /// 定义一个九宫格切图的视图填充

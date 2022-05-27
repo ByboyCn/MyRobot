@@ -1,9 +1,8 @@
-﻿using CPF;
-using CPF.Controls;
+﻿using CPF.Controls;
 using CPF.Drawing;
 using CPF.Shapes;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class Component1 : Control
     {

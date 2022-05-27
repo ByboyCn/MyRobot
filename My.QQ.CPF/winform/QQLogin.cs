@@ -5,7 +5,7 @@ using CPF.Input;
 using CPF.Shapes;
 using CPF.Styling;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class QQLogin : Window
     {
@@ -455,8 +455,8 @@ namespace My.QQ.CPF
                             {
                                 Color = "#939292",
                             },
-                            MarginLeft = 110.2f,
-                            MarginTop = 242.7f,
+                            MarginLeft = 110f,
+                            MarginTop = 242f,
                             Content = "自动登录",
                         },
                         new CheckBox
@@ -466,16 +466,9 @@ namespace My.QQ.CPF
                             {
                                 Color = "#939292",
                             },
-                            MarginLeft = 188.6f,
-                            MarginTop = 242.1f,
+                            MarginLeft = 258f,
+                            MarginTop = 242f,
                             Content = "记住密码",
-                        },
-                        new TextBlock
-                        {
-                            Foreground = "#9C9C9C",
-                            MarginLeft = 266.9f,
-                            MarginTop = 242.9f,
-                            Text = "找回密码",
                         },
                         new Button
                         {

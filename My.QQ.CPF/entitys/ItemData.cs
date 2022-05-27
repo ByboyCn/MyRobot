@@ -1,6 +1,6 @@
 ﻿using CPF;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class ItemData : CpfObject
     {

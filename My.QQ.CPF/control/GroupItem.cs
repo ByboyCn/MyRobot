@@ -3,22 +3,17 @@ using CPF.Controls;
 using CPF.Drawing;
 using CPF.Shapes;
 using CPF.Styling;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class GroupItem : TreeViewItem
     {
         protected override void InitializeComponent()
         {
-            if (!string.IsNullOrWhiteSpace(DisplayMemberPath))
-            {
+            if (!string.IsNullOrWhiteSpace(DisplayMemberPath)) {
                 this[nameof(Header)] = DisplayMemberPath;
             }
-            if (!string.IsNullOrWhiteSpace(ItemsMemberPath))
-            {
+            if (!string.IsNullOrWhiteSpace(ItemsMemberPath)) {
                 this[nameof(Items)] = ItemsMemberPath;
             }
 
@@ -77,8 +72,7 @@ namespace My.QQ.CPF
                     //panel,
                 },
             });
-            if (IsExpanded)
-            {
+            if (IsExpanded) {
                 FindPresenterByName<Panel>("itemsPanelHost").Children.Add(panel);
             }
         }
@@ -86,10 +80,8 @@ namespace My.QQ.CPF
         [PropertyChanged(nameof(IsExpanded))]
         void OnIsExpanded(object newValue, object oldValue, PropertyMetadataAttribute attribute)
         {
-            if ((bool)newValue)
-            {//为了提高性能，当第一次展开的时候才加载控件
-                if (ItemsHost.Root == null)
-                {
+            if ((bool)newValue) {//为了提高性能，当第一次展开的时候才加载控件
+                if (ItemsHost.Root == null) {
                     FindPresenterByName<Panel>("itemsPanelHost").Children.Add(ItemsHost);
                 }
             }

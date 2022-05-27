@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CPF;
 using CPF.Controls;
 using CPF.Drawing;
 using CPF.Styling;
-using CPF;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class ColumnTemplate : DataGridColumnTemplate
     {
@@ -68,12 +65,10 @@ namespace My.QQ.CPF
                     }
                 }
             });
-            Commands.Add(nameof(MouseDown), (s, e) =>
-            {
+            Commands.Add(nameof(MouseDown), (s, e) => {
                 (s as UIElement).CaptureMouse();
             });
-            Commands.Add(nameof(MouseUp), (s, e) =>
-            {
+            Commands.Add(nameof(MouseUp), (s, e) => {
                 (s as UIElement).ReleaseMouseCapture();
             });
             Triggers.Add(new Trigger
@@ -127,8 +122,7 @@ namespace My.QQ.CPF
         void SetCheck(bool? check)
         {
             var column = Column;
-            foreach (var item in column.DataGridOwner.Items)
-            {
+            foreach (var item in column.DataGridOwner.Items) {
                 item.SetPropretyValue(column.Binding.SourcePropertyName, (bool)check);
             }
         }

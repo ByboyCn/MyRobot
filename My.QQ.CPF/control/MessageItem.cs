@@ -1,26 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CPF;
-using CPF.Drawing;
+﻿using CPF;
 using CPF.Controls;
 using CPF.Shapes;
-using CPF.Styling;
-using CPF.Animation;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class MessageItem : ListBoxItem
     {
         protected override void InitializeComponent()
         {//模板定义
-            if (DesignMode)
-            {
+            if (DesignMode) {
                 Width = 300;
                 Background = "#fff";
-            }
-            else
-            {
+            } else {
                 Width = "100%";
             }
             Height = 55;
@@ -31,7 +22,7 @@ namespace My.QQ.CPF
                 Height = 40,
                 Width = 40,
                 StrokeFill = null,
-                Fill = "url(res://My.QQ.CPF/Resources/headQQ.png) Clamp Fill",
+                Fill = "url(res://My.QQ/Resources/headQQ.png) Clamp Fill",
             });
             Children.Add(new TextBlock
             {
@@ -61,15 +52,15 @@ namespace My.QQ.CPF
             });
             Children.Add(new Border
             {
-                CornerRadius="8",
-                IsAntiAlias=true,
+                CornerRadius = "8",
+                IsAntiAlias = true,
                 MarginTop = 30f,
                 MarginRight = 10,
-                BorderFill= "247,76,49",
-                Background= "247,76,49",
+                BorderFill = "247,76,49",
+                Background = "247,76,49",
                 Child = new TextBlock
                 {
-                    Foreground="#fff",
+                    Foreground = "#fff",
                     Text = "99+",
                 }
             });
@@ -78,10 +69,10 @@ namespace My.QQ.CPF
                 Foreground = "#7E7E7E",
                 MarginTop = 10f,
                 MarginRight = 10,
-                Text="00:00",
+                Text = "00:00",
             });
-            Triggers.Add(nameof(IsMouseOver), Relation.Me, null, (nameof(Background),"#aaaaaa55"));
-            Triggers.Add(nameof(IsSelected), Relation.Me, null, (nameof(Background),"#aaaaaa55"));
+            Triggers.Add(nameof(IsMouseOver), Relation.Me, null, (nameof(Background), "#aaaaaa55"));
+            Triggers.Add(nameof(IsSelected), Relation.Me, null, (nameof(Background), "#aaaaaa55"));
             Commands.Add(nameof(DoubleClick), nameof(QQMainModel.ClickMessageItem), null, this);
         }
     }

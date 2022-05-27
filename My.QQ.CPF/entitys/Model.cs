@@ -1,30 +1,25 @@
-﻿using System;
+﻿using CPF;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using CPF;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class Model : CpfObject
     {
         public Model()
         {
             var data = new DataTable();
-            for (int i = 0; i < 9; i++)
-            {
+            for (int i = 0; i < 9; i++) {
                 data.Columns.Add("p" + (i + 1).ToString());
             }
             data.Columns[1].DataType = typeof(bool);
             data.Columns[3].DataType = typeof(int);
-            for (int i = 0; i < 100; i++)
-            {
+            for (int i = 0; i < 100; i++) {
                 var row = data.NewRow();
-                for (int j = 0; j < 9; j++)
-                {
-                    if (j != 1)
-                    {
+                for (int j = 0; j < 9; j++) {
+                    if (j != 1) {
                         row[j] = i;
                     }
                 }
@@ -37,14 +32,11 @@ namespace My.QQ.CPF
 
 
             Collection<node> nodes = new Collection<node>();
-            for (int i = 0; i < 10; i++)
-            {
+            for (int i = 0; i < 10; i++) {
                 var n = new node { Text = "节点dsff" + i };
-                for (int j = 0; j < 2; j++)
-                {
+                for (int j = 0; j < 2; j++) {
                     var nn = new node { Text = "节点fsadad" + i + j };
-                    for (int l = 0; l < 3; l++)
-                    {
+                    for (int l = 0; l < 3; l++) {
                         nn.Nodes.Add(new node { Text = "节点" });
                     }
                     n.Nodes.Add(nn);
@@ -54,8 +46,7 @@ namespace My.QQ.CPF
             Nodes = nodes;
 
             Collection<string> list = new Collection<string>();
-            for (int i = 0; i < 100000; i++)
-            {
+            for (int i = 0; i < 100000; i++) {
                 list.Add(i.ToString());
             }
             List = list;
@@ -89,16 +80,12 @@ namespace My.QQ.CPF
         {
             string data = InsertText;
             int index = InsertIndex;
-            if (string.IsNullOrWhiteSpace(data))
-            {
+            if (string.IsNullOrWhiteSpace(data)) {
                 return;
             }
-            if (index < 0 || index > List.Count)
-            {
+            if (index < 0 || index > List.Count) {
                 List.Add(data);
-            }
-            else
-            {
+            } else {
                 List.Insert(index, data);
             }
         }
@@ -111,8 +98,7 @@ namespace My.QQ.CPF
 
         public void RemoveSelect()
         {
-            if (List.Count > SelectIndex && SelectIndex > -1)
-            {
+            if (List.Count > SelectIndex && SelectIndex > -1) {
                 List.RemoveAt(SelectIndex);
             }
         }

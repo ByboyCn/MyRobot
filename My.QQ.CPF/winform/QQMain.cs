@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CPF;
-using CPF.Drawing;
-using CPF.Controls;
-using CPF.Shapes;
-using CPF.Styling;
+﻿using CPF;
 using CPF.Animation;
-using CPF.Platform;
+using CPF.Controls;
+using CPF.Drawing;
+using CPF.Shapes;
+using System;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class QQMain : Window
     {
         protected override void InitializeComponent()
         {
-            if (!DesignMode)
-            {
+            if (!DesignMode) {
                 DataContext = new QQMainModel();
                 CommandContext = DataContext;
             }
@@ -149,21 +143,21 @@ namespace My.QQ.CPF
                             },
                             new RowDefinition
                             {
-                                
+
                             }
                         },
                         Children =
                         {
                             new TextBlock
                             {
-                                Text="小红帽",
+                                Text="Byboy",
                                 FontStyle= FontStyles.Bold,
                                 Foreground="#fff",
                                 FontSize=20,
                             },
                             new TextBlock
                             {
-                                Text="lv100",
+                                Text="lv89",
                                 Foreground="#FFE000",
                                 FontStyle= FontStyles.Bold,
                                 Attacheds =
@@ -381,7 +375,7 @@ namespace My.QQ.CPF
                             },
                             new TabItem
                             {
-                                Header="空间",
+                                Header="插件",
                                 Bindings =
                                 {
                                     {
@@ -448,12 +442,20 @@ namespace My.QQ.CPF
                     },
                 },
             }));
+
             LoadStyleFile("res://My.QQ.CPF/css/QQMain.css");
             //加载样式文件，文件需要设置为内嵌资源
 
             if (!DesignMode)//设计模式下不执行
             {
-                
+                Closing += ((e, s) => {
+                    s.Cancel = true; // 结束
+                    var c = (bool)(MessageBox.ShowSync("确定要退出吗?", "提示") ?? false);
+                    if (c) {
+                        var tt = System.Diagnostics.Process.GetProcessById(System.Diagnostics.Process.GetCurrentProcess().Id);
+                        tt.Kill();
+                    }
+                });
             }
         }
     }

@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CPF;
-using CPF.Drawing;
+﻿using CPF;
 using CPF.Controls;
-using CPF.Shapes;
-using CPF.Styling;
-using CPF.Animation;
 using CPF.Input;
+using CPF.Shapes;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class UserItem : TreeViewItem
     {
         protected override void InitializeComponent()
         {//模板定义
-            if (DesignMode)
-            {
+            if (DesignMode) {
                 Width = 300;
                 Background = "#fff";
-            }
-            else
-            {
+            } else {
                 Width = "100%";
             }
             Height = 55;
@@ -32,7 +23,7 @@ namespace My.QQ.CPF
                 Height = 40,
                 Width = 40,
                 StrokeFill = null,
-                Fill = "url(res://My.QQ.CPF/Resources/headQQ.png) Clamp Fill",
+                Fill = "url(res://My.QQ/Resources/headQQ.png) Clamp Fill",
             });
             Children.Add(new TextBlock
             {

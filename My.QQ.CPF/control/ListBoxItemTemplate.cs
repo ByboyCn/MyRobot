@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CPF;
 using CPF.Controls;
-using CPF.Drawing;
-using CPF.Styling;
 using CPF.Shapes;
-using CPF;
+using CPF.Styling;
 
-namespace My.QQ.CPF
+namespace My.QQ
 {
     public class ListBoxItemTemplate : ListBoxItem
     {
