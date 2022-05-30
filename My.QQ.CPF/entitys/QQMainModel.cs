@@ -36,6 +36,7 @@ namespace My.QQ
             set { SetValue(value); }
         }
 
+
         public void ClickMessageItem(MessageItem messageItem)
         {
             new QQChat().Show();

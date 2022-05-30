@@ -50,37 +50,7 @@ namespace My.QQ
                         Orientation= Orientation.Horizontal,
                         Children =
                         {
-                            new Label
-                            {
-                                Classes=
-                                {
-                                    "icon_free",
-                                    "syt_btn"
-                                },
-                                Foreground = "#FFDF00",
-                                Text = ((char)0xf005).ToString(),
-                            },
-                            new Label
-                            {
-                                Classes=
-                                {
-                                    "icon_free",
-                                    "syt_btn"
-                                },
-                                Foreground = "#fff",
-                                Text = ((char)0xf553).ToString(),
-                            },
-                            new Label
-                            {
-                                Classes=
-                                {
-                                    "icon_free",
-                                    "syt_btn"
-                                },
-                                FontSize = 12f,
-                                Foreground = "#fff",
-                                Text = ((char)0xf0e0).ToString(),
-                            },
+                            
                         }
                     },
                     new Border
@@ -112,11 +82,10 @@ namespace My.QQ
                     },
                     new Grid
                     {
-                        //LineFill="#f00",
+                        Width = 197,//LineFill="#f00",
                         //LineStroke="1",
                         MarginTop=10,
                         MarginLeft=80,
-                        MarginRight=80,
                         ColumnDefinitions =
                         {
                             new ColumnDefinition
@@ -158,6 +127,8 @@ namespace My.QQ
                             },
                             new TextBlock
                             {
+                                MarginLeft = 39,
+                                MarginTop = 5,
                                 Text="lv89",
                                 Foreground="#FFE000",
                                 FontStyle= FontStyles.Bold,
@@ -171,20 +142,8 @@ namespace My.QQ
                             },
                             new TextBlock
                             {
-                                Background="#FCFF02",
-                                Text="SVIP",
-                                Foreground="#FF0000",
-                                FontStyle= FontStyles.Bold,
-                                Attacheds =
-                                {
-                                    {
-                                        Grid.ColumnIndex,
-                                        2
-                                    }
-                                }
-                            },
-                            new TextBlock
-                            {
+                                MarginLeft = 34,
+                                MarginTop = 5,
                                 Background="#FCFF02",
                                 Text="SVIP",
                                 Foreground="#FF0000",
@@ -222,18 +181,6 @@ namespace My.QQ
                                 }
                             }
                         }
-                    },
-                    new Label
-                    {
-                        FontSize = 40f,
-                        MarginRight = 10,
-                        MarginTop = 12.4f,
-                        Classes=
-                        {
-                            "icon_free"
-                        },
-                        Foreground = "#FFf",
-                        Text = ((char)0xf185).ToString(),
                     },
                     new Panel
                     {
@@ -386,6 +333,18 @@ namespace My.QQ
                                         BindingMode.OneWay,
                                         (Size a)=>a.Width/3
                                     }
+                                },
+                                Content = new ListBox
+                                {
+                                    Size=SizeField.Fill,
+                                    ItemTemplate = typeof(PluginControl),
+                                    Bindings =
+                                    {
+                                        {
+                                            nameof(TreeView.Items),
+                                            nameof(QQMainModel.Groups)
+                                        }
+                                    }
                                 }
                             },
                         },
@@ -427,7 +386,7 @@ namespace My.QQ
                                 Commands=
                                 {
                                     {
-                                        nameof(Button.Click),
+                                        nameof(Label.MouseDown),
                                         (s,e)=>
                                         {
                                             MessageBox.ShowSync("自动更新?");
@@ -445,6 +404,16 @@ namespace My.QQ
                                 },
                                 Foreground = "rgb(108,122,145)",
                                 Text = ((char)0xf234).ToString(),
+                                Commands=
+                                {
+                                    {
+                                        nameof(Label.MouseDown),
+                                        (s,e)=>
+                                        {
+                                            MessageBox.ShowSync("自动加好友？");
+                                        }
+                                    }
+                                },
                             },
                         },
                         Background = "rgba(255, 255, 255, 0.8)",

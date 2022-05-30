@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
@@ -15,7 +15,10 @@
 
   <ItemGroup>
     <None Remove="css\anyemoshi.css" />
+    <None Remove="css\ElementUI1.css" />
+    <None Remove="css\ElementUI2.css" />
     <None Remove="css\mingliangmoshi.css" />
+    <None Remove="css\Plugin.css" />
     <None Remove="css\QQChat.css" />
     <None Remove="css\QQLogin.css" />
     <None Remove="css\QQMain.css" />
@@ -34,7 +37,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="css\anyemoshi.css" />
+    <EmbeddedResource Include="css\ElementUI1.css" />
+    <EmbeddedResource Include="css\ElementUI2.css" />
     <EmbeddedResource Include="css\mingliangmoshi.css" />
+    <EmbeddedResource Include="css\Plugin.css" />
     <EmbeddedResource Include="css\QQChat.css" />
     <EmbeddedResource Include="css\QQLogin.css" />
     <EmbeddedResource Include="css\QQMain.css" />

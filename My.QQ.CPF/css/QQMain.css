@@ -73,7 +73,28 @@ TabItem[IsSelected=true] {
     Foreground: rgb(108,122,145);
 }
 
+.el-checkbox #indeterminateMark {
+    Fill: #1E9FFF;
+}
 
+.el-checkbox #checkBoxBorder {
+    Background: #fff;
+    BorderFill: rgb(220,223,230);
+}
+
+.el-checkbox {
+    background-color: #ff0000 !important;
+    border: 3px solid red !important;
+}
+
+    .el-checkbox[IsChecked=true] #checkBoxBorder {
+        Background: #1E9FFF;
+        BorderFill: #1E9FFF;
+    }
+
+    .el-checkbox Polyline {
+        StrokeFill: #fff;
+    }
 ScrollBar {
     Background: null;
 }
